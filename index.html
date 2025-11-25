@@ -4,9 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Urban Gallery</title>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-</head>
 
+    <!-- Ensure relative asset paths resolve when published under /URBANo/ -->
+    <base href="/URBANo/">
+
+    <!-- explicit relative link (works both locally and on Pages) -->
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+</head>
 <body>
 
     <!-- ================== HEADER ================== -->
@@ -69,7 +73,7 @@
         var img5 = "./Imagem2_Artista_Robinho.webp";
         var img6 = "./Imagem3_Artista_Robinho.webp";
 
-        var repete = setInterval("Carrossel()", 2000);
+        var repete = setInterval(Carrossel, 2000);
 
         function Carrossel() {
             document.images["imagem"].src = eval("img" + cont);
@@ -80,14 +84,14 @@
             clearInterval(repete);
             cont = cont === 1 ? 6 : cont - 1;
             document.images["imagem"].src = eval("img" + cont);
-            repete = setInterval("Carrossel()", 2000);
+            repete = setInterval(Carrossel, 2000);
         }
 
         function Proximo() {
             clearInterval(repete);
             cont = cont < 6 ? cont + 1 : 1;
             document.images["imagem"].src = eval("img" + cont);
-            repete = setInterval("Carrossel()", 2000);
+            repete = setInterval(Carrossel, 2000);
         }
     </script>
 
@@ -212,6 +216,5 @@
             }
         });
     </script>
-
 </body>
 </html>
